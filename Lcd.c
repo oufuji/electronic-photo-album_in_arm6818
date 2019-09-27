@@ -1,10 +1,10 @@
 #include"Lcd.h"
-
 /*
  *功能：	处理任意大小的bmp图片,内容存到buff_480_800_Hecheng
  *参数：	char *p_name：图片名字
  *返回值：  无
  */
+
 void ChuLi_High_Weigh(char *p_name){
 	int i,j;
 	int k=0;
@@ -63,11 +63,15 @@ void YingShe(unsigned int * p){
  *返回值：  返回LCD的文件描述符
  */
 int Lcd_Init(char *pname){
+	buff_yuan=(unsigned int *)malloc(7209*4);
+	buff_480_800=(unsigned int *)malloc(800*480*4);
 	buff_480_800_Hecheng=(unsigned int *)malloc(800*480*4);
-	int p=open("/dev/fb0",O_RDWR|O_CREAT);
+	int p=open("/dev/fb0",O_RDWR);
 	mmp=mmap(NULL,480*800*4,PROT_READ | PROT_WRITE,MAP_SHARED,p,0);
 	ChuLi_High_Weigh(pname);
 	YingShe(buff_480_800_Hecheng);
+	p_all = p;
+	printf("p======%d\n",p);
 	return p;
 }
 
