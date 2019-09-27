@@ -13,9 +13,9 @@
 
 int CaiDan;
 unsigned int* buff_480_800;
-
+unsigned int* buff_yuan;
 unsigned int* buff_480_800_Hecheng;
-
+extern int p_all;
 extern int Flag_SongShou;
 unsigned int *mmp;
 int Yuan_NeiCun[7210];
@@ -25,19 +25,13 @@ typedef struct Kernel_List_Node{
 }My_Node;
 
 
-
-
 void ChuLi_High_Weigh(char *p_name);
 void HeCheng(int dx,int dy,int R);
 void YingShe(unsigned int* p);
-
 int Lcd_Init(char *pname);
-
 
 extern void ReadDir(char *,char*,My_Node*);
 extern My_Node* List_Init(void);
-
-
 
 
 #endif
